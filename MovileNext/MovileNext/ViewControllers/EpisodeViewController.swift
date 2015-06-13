@@ -24,7 +24,9 @@ class EpisodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        textEpisodio.textContainer.lineFragmentPadding = 0
+        textEpisodio.textContainerInset = UIEdgeInsetsZero
         // Do any additional setup after loading the view.
     }
 

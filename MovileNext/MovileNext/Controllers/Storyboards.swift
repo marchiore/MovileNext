@@ -146,3 +146,35 @@ extension UITableViewController {
 //MARK: - CustomNavigationControllerViewController
 
 //MARK: - EpisodeViewController
+
+//MARK: - EpisodiosTableViewController
+extension EpisodiosTableViewController { 
+
+    enum Reusable: String, Printable, ReusableProtocol {
+        case cell = "cell"
+
+        var kind: ReusableKind? {
+            switch (self) {
+            case cell:
+                return ReusableKind(rawValue: "tableViewCell")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var viewType: UIView.Type? {
+            switch (self) {
+            case cell:
+                return CellEpisodiosTableViewCell.self
+            default:
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+

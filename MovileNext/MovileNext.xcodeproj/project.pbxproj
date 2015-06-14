@@ -41,7 +41,7 @@
 		A8723FF3825C1C43D1A7B2BA /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B794FF58401213429CE946BC /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodiosTableViewController.swift; sourceTree = "<group>"; };
-		CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellEpisodiosTableViewCell.swift; sourceTree = "<group>"; };
+		CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellEpisodiosTableViewCell.swift; path = ../ViewControllers/CellEpisodiosTableViewCell.swift; sourceTree = "<group>"; };
 		CE9718E81B2CAED600063BE7 /* UIColor+MovileNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MovileNext.swift"; sourceTree = "<group>"; };
 		CE9718EA1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		CE9718EC1B2CB12000063BE7 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +170,6 @@
 				CE9718EA1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift */,
 				CE9718EC1B2CB12000063BE7 /* EpisodeViewController.swift */,
 				CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */,
-				CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +198,7 @@
 		C677E0661579D7DC0C090A39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

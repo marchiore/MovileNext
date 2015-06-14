@@ -134,11 +134,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-K7-Qxs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-K7-Qxs">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="thc-yY-gfq" detailTextLabel="fsa-0w-7hZ" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="ODo-Sf-TZs" customClass="CellEpisodiosTableViewCell" customModule="MovileNext" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="thc-yY-gfq" detailTextLabel="fsa-0w-7hZ" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="ODo-Sf-TZs" customClass="CellEpisodiosTableViewCell" customModule="MovileNext" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" tableViewCell="ODo-Sf-TZs" id="uua-eT-o5W">
@@ -162,6 +162,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="r91-9p-IAA" id="L24-0x-WbS"/>
+                                    <outlet property="delegate" destination="r91-9p-IAA" id="clS-Wq-cdH"/>
                                 </connections>
                             </tableView>
                         </subviews>

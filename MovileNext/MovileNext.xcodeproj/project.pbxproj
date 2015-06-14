@@ -14,6 +14,8 @@
 		B26F5A5C2525661E68EA9946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8723FF3825C1C43D1A7B2BA /* AppDelegate.swift */; };
 		CE423CE21B2DBDD900D4778B /* EpisodiosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */; };
 		CE423CE41B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */; };
+		CE423CE61B2DD38300D4778B /* ShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE51B2DD38300D4778B /* ShowsViewController.swift */; };
+		CE423CE81B2DD7D600D4778B /* ShowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE71B2DD7D600D4778B /* ShowCollectionViewCell.swift */; };
 		CE9718E91B2CAED600063BE7 /* UIColor+MovileNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9718E81B2CAED600063BE7 /* UIColor+MovileNext.swift */; };
 		CE9718EB1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9718EA1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift */; };
 		CE9718ED1B2CB12000063BE7 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9718EC1B2CB12000063BE7 /* EpisodeViewController.swift */; };
@@ -42,6 +44,8 @@
 		B794FF58401213429CE946BC /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodiosTableViewController.swift; sourceTree = "<group>"; };
 		CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellEpisodiosTableViewCell.swift; path = ../ViewControllers/CellEpisodiosTableViewCell.swift; sourceTree = "<group>"; };
+		CE423CE51B2DD38300D4778B /* ShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowsViewController.swift; sourceTree = "<group>"; };
+		CE423CE71B2DD7D600D4778B /* ShowCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE9718E81B2CAED600063BE7 /* UIColor+MovileNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MovileNext.swift"; sourceTree = "<group>"; };
 		CE9718EA1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		CE9718EC1B2CB12000063BE7 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				CE9718EA1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift */,
 				CE9718EC1B2CB12000063BE7 /* EpisodeViewController.swift */,
 				CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */,
+				CE423CE51B2DD38300D4778B /* ShowsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */,
+				CE423CE71B2DD7D600D4778B /* ShowCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -436,7 +442,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE423CE81B2DD7D600D4778B /* ShowCollectionViewCell.swift in Sources */,
 				B26F5A5C2525661E68EA9946 /* AppDelegate.swift in Sources */,
+				CE423CE61B2DD38300D4778B /* ShowsViewController.swift in Sources */,
 				CE9718ED1B2CB12000063BE7 /* EpisodeViewController.swift in Sources */,
 				CE9718EB1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift in Sources */,
 				08362CEDA65D1EF82952FE90 /* Storyboards.swift in Sources */,

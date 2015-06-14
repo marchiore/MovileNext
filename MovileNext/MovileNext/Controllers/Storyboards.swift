@@ -148,6 +148,45 @@ extension UITableViewController {
 //MARK: - EpisodeViewController
 
 //MARK: - EpisodiosTableViewController
+extension UIStoryboardSegue {
+    func selection() -> EpisodiosTableViewController.Segue? {
+        if let identifier = self.identifier {
+            return EpisodiosTableViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension EpisodiosTableViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case EpisodeSegue = "EpisodeSegue"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case EpisodeSegue:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case EpisodeSegue:
+                return EpisodeViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
 extension EpisodiosTableViewController { 
 
     enum Reusable: String, Printable, ReusableProtocol {
@@ -167,6 +206,36 @@ extension EpisodiosTableViewController {
             switch (self) {
             case cell:
                 return CellEpisodiosTableViewCell.self
+            default:
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+
+
+//MARK: - ShowsViewController
+extension ShowsViewController { 
+
+    enum Reusable: String, Printable, ReusableProtocol {
+        case CellCollection = "CellCollection"
+
+        var kind: ReusableKind? {
+            switch (self) {
+            case CellCollection:
+                return ReusableKind(rawValue: "collectionViewCell")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var viewType: UIView.Type? {
+            switch (self) {
             default:
                 return nil
             }

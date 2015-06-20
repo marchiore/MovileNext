@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QkC-VL-gbU">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Entry Table View Controller-->
+        <scene sceneID="p5W-ek-ybG">
+            <objects>
+                <tableViewController id="QkC-VL-gbU" customClass="EntryTableViewController" customModule="MovileExercicio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wdz-0W-0ZS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="o2l-mQ-rdU" customClass="CellEntry" customModule="MovileExercicio" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o2l-mQ-rdU" id="HCs-qp-ETr">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWj-i3-Lfj">
+                                            <rect key="frame" x="14" y="47.5" width="548" height="13.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPz-U0-tSB">
+                                            <rect key="frame" x="14" y="8" width="42" height="28.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iWj-i3-Lfj" firstAttribute="leading" secondItem="HCs-qp-ETr" secondAttribute="leadingMargin" constant="7" id="50Y-iy-CQH"/>
+                                        <constraint firstItem="YPz-U0-tSB" firstAttribute="top" secondItem="HCs-qp-ETr" secondAttribute="top" constant="8" id="7p0-fx-ge1"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="iWj-i3-Lfj" secondAttribute="trailing" constant="7" id="802-3i-xN5"/>
+                                        <constraint firstItem="YPz-U0-tSB" firstAttribute="leading" secondItem="HCs-qp-ETr" secondAttribute="leadingMargin" constant="7" id="DNk-Ih-Xv9"/>
+                                        <constraint firstItem="YPz-U0-tSB" firstAttribute="top" secondItem="HCs-qp-ETr" secondAttribute="topMargin" id="Nit-gb-FxF"/>
+                                        <constraint firstItem="iWj-i3-Lfj" firstAttribute="top" secondItem="YPz-U0-tSB" secondAttribute="bottom" constant="11" id="NpW-Ek-Bd6"/>
+                                        <constraint firstItem="YPz-U0-tSB" firstAttribute="leading" secondItem="HCs-qp-ETr" secondAttribute="leading" constant="14" id="QnU-wM-9Mr"/>
+                                        <constraint firstAttribute="bottom" secondItem="iWj-i3-Lfj" secondAttribute="bottom" constant="8.5" id="T2o-vs-ntB"/>
+                                        <constraint firstItem="iWj-i3-Lfj" firstAttribute="top" secondItem="YPz-U0-tSB" secondAttribute="bottom" constant="7" id="Tef-Ia-azO"/>
+                                        <constraint firstItem="iWj-i3-Lfj" firstAttribute="leading" secondItem="HCs-qp-ETr" secondAttribute="leadingMargin" constant="6" id="a3X-co-qgH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="YPz-U0-tSB" secondAttribute="trailing" constant="7" id="edL-Ww-G5w"/>
+                                        <constraint firstAttribute="trailing" secondItem="iWj-i3-Lfj" secondAttribute="trailing" constant="5" id="lbH-67-p6Z"/>
+                                        <constraint firstItem="iWj-i3-Lfj" firstAttribute="leading" secondItem="HCs-qp-ETr" secondAttribute="leading" constant="14" id="ndJ-Mv-a04"/>
+                                        <constraint firstItem="iWj-i3-Lfj" firstAttribute="top" secondItem="YPz-U0-tSB" secondAttribute="bottom" constant="7" id="w30-MB-srC"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="DNk-Ih-Xv9"/>
+                                            <exclude reference="Nit-gb-FxF"/>
+                                            <exclude reference="edL-Ww-G5w"/>
+                                            <exclude reference="50Y-iy-CQH"/>
+                                            <exclude reference="802-3i-xN5"/>
+                                            <exclude reference="Tef-Ia-azO"/>
+                                            <exclude reference="a3X-co-qgH"/>
+                                            <exclude reference="w30-MB-srC"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitle" destination="iWj-i3-Lfj" id="b61-XV-HHe"/>
+                                    <outlet property="title" destination="YPz-U0-tSB" id="Udi-4l-TvW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QkC-VL-gbU" id="YlR-Ob-M6t"/>
+                            <outlet property="delegate" destination="QkC-VL-gbU" id="V7x-WI-yO6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qWo-1v-EdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302" y="-67"/>
+        </scene>
+    </scenes>
+</document>

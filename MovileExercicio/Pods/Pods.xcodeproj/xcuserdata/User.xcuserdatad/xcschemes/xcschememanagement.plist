@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-MovileExercicio-Argo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileExercicio-Box.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileExercicio-Runes.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileExercicio.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>33D9FE6D5C6ECCA505140131</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34FB906CC4CACD74EE298AD7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>413D460E40E65BCE2EAC2943</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90244131732845E3974DF209</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

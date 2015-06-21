@@ -219,6 +219,45 @@ extension EpisodiosTableViewController {
 
 
 //MARK: - ShowsViewController
+extension UIStoryboardSegue {
+    func selection() -> ShowsViewController.Segue? {
+        if let identifier = self.identifier {
+            return ShowsViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension ShowsViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case mostraSeason = "mostraSeason"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case mostraSeason:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case mostraSeason:
+                return EpisodiosTableViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
 extension ShowsViewController { 
 
     enum Reusable: String, Printable, ReusableProtocol {
@@ -236,6 +275,8 @@ extension ShowsViewController {
 
         var viewType: UIView.Type? {
             switch (self) {
+            case CellCollection:
+                return ShowCell.self
             default:
                 return nil
             }

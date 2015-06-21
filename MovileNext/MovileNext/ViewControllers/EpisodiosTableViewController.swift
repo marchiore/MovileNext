@@ -7,19 +7,36 @@
 //
 
 import UIKit
+import TraktModels
 
 class EpisodiosTableViewController: UIViewController {
 
     @IBOutlet weak var episodiosTableView: UITableView!
+    private let httpClient = TraktHTTPClient()
+    
+    var show: Show!
+    private var episodes: [Episode]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadEpisodes()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func loadEpisodes(){
+        httpClient.getEpisodes(show.identifiers.slug!, season: 1){[weak self] result in
+            if let episodes = result.value {
+                println("Conseguiu")
+                self?.episodes = episodes
+                self?.episodiosTableView.reloadData()
+            }else{
+                println(result.error)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +55,7 @@ class EpisodiosTableViewController: UIViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 40
+        return episodes?.count ?? 0
     }
 
     
@@ -46,8 +63,9 @@ class EpisodiosTableViewController: UIViewController {
         let identifier = Reusable.cell.identifier!
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier,   forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = "S01E01"
-        cell.detailTextLabel?.text = "Episodio 01"
+        var episode = episodes?[indexPath.row]
+        cell.textLabel?.text = episode?.number.description
+        cell.detailTextLabel?.text = episode?.title
         
         return cell
     }

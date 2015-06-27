@@ -218,6 +218,100 @@ extension EpisodiosTableViewController {
 }
 
 
+//MARK: - ShowDetailViewController
+extension UIStoryboardSegue {
+    func selection() -> ShowDetailViewController.Segue? {
+        if let identifier = self.identifier {
+            return ShowDetailViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension ShowDetailViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case mostraGenres = "mostraGenres"
+        case mostraDetail = "mostraDetail"
+        case mostraOver = "mostraOver"
+        case mostraSeason = "mostraSeason"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case mostraGenres:
+                return SegueKind(rawValue: "show")
+            case mostraDetail:
+                return SegueKind(rawValue: "show")
+            case mostraOver:
+                return SegueKind(rawValue: "show")
+            case mostraSeason:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case mostraGenres:
+                return GenresViewController.self
+            case mostraDetail:
+                return DetailViewController.self
+            case mostraOver:
+                return OverviewViewController.self
+            case mostraSeason:
+                return SeasonsTableViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+
+//MARK: - OverviewViewController
+
+//MARK: - GenresViewController
+
+//MARK: - SeasonsTableViewController
+extension SeasonsTableViewController { 
+
+    enum Reusable: String, Printable, ReusableProtocol {
+        case seasonCell = "seasonCell"
+
+        var kind: ReusableKind? {
+            switch (self) {
+            case seasonCell:
+                return ReusableKind(rawValue: "tableViewCell")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var viewType: UIView.Type? {
+            switch (self) {
+            case seasonCell:
+                return SeasonCell.self
+            default:
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+
+
+//MARK: - DetailViewController
+
 //MARK: - ShowsViewController
 extension UIStoryboardSegue {
     func selection() -> ShowsViewController.Segue? {
@@ -231,11 +325,11 @@ extension UIStoryboardSegue {
 extension ShowsViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case mostraSeason = "mostraSeason"
+        case mostraDetail = "mostraDetail"
 
         var kind: SegueKind? {
             switch (self) {
-            case mostraSeason:
+            case mostraDetail:
                 return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
@@ -245,8 +339,8 @@ extension ShowsViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case mostraSeason:
-                return EpisodiosTableViewController.self
+            case mostraDetail:
+                return ShowDetailViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil

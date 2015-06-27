@@ -69,4 +69,13 @@ class EpisodiosTableViewController: UIViewController {
         
         return cell
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue == Segue.EpisodeSegue{
+            if let cell = sender as? UICollectionViewCell, indexPath = episodiosTableView.indexPathForSelectedRow(){
+                let vc = segue.destinationViewController as! EpisodeViewController
+                vc.episode = episodes?[indexPath.row]
+            }
+        }
+    }
 }

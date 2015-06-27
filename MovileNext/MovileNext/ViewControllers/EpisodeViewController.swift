@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import TraktModels
 
 class EpisodeViewController: UIViewController {
 
     @IBOutlet weak var labelEpisodio: UILabel!
     @IBOutlet weak var textEpisodio: UITextView!
     @IBOutlet weak var imageEpisodio: UIImageView!
+
+    var episode: Episode!
     
     @IBAction func sharePressed(sender: UIBarButtonItem) {
 
@@ -24,9 +27,23 @@ class EpisodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+        let placeholder = UIImage(named: "bg")
+        if let url = episode.screenshot?.fullImageURL {
+            imageEpisodio.hnk_setImageFromURL(url, placeholder: placeholder)
+        } else {
+            imageEpisodio.image = placeholder
+        }*/
+
+        
+        
+        imageEpisodio.image = UIImage(named: "bg")
+        imageEpisodio.image = imageEpisodio.image?.darkenImage()
         
         textEpisodio.textContainer.lineFragmentPadding = 0
         textEpisodio.textContainerInset = UIEdgeInsetsZero
+        
+        
         // Do any additional setup after loading the view.
     }
 

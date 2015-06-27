@@ -26,27 +26,27 @@ class ShowsViewController: UIViewController {
         // Do any additional setup after loading the view.
         let show: Show
         let episode: Episode
-        
-        teste.getShow("game-of-thrones") { result in
-            println("Show -> \(result.value?.title)")
-        }
-        
-        teste.getEpisode("game-of-thrones", season: 1, episodeNumber: 1) { result in
-            println("Ep -> \(result.value?.overview)")
-        }
-        
-        teste.getPopularShows(){ result in
-            println("Popular -> \(result.value?.count)")
-        }
-        
-        teste.getEpisodes("game-of-thrones", season: 1) { result in
-            //println("Error -> \(result.error)")
-            println("Episodes -> \(result.value?.count)")
-        }
-        
-        teste.getSeasons("game-of-thrones") { result in
-            println("Seasons -> \(result.value?.count)")
-        }
+//        
+//        teste.getShow("game-of-thrones") { result in
+//            println("Show -> \(result.value?.title)")
+//        }
+//        
+//        teste.getEpisode("game-of-thrones", season: 1, episodeNumber: 1) { result in
+//            println("Ep -> \(result.value?.overview)")
+//        }
+//        
+//        teste.getPopularShows(){ result in
+//            println("Popular -> \(result.value?.count)")
+//        }
+//        
+//        teste.getEpisodes("game-of-thrones", season: 1) { result in
+//            //println("Error -> \(result.error)")
+//            println("Episodes -> \(result.value?.count)")
+//        }
+//        
+//        teste.getSeasons("game-of-thrones") { result in
+//            println("Seasons -> \(result.value?.count)")
+//        }
         
         loadShows()
 
@@ -55,7 +55,7 @@ class ShowsViewController: UIViewController {
     func loadShows(){
         httpClient.getPopularShows({[weak self] result in
             if let shows = result.value {
-                println("Conseguiu")
+                //println("Conseguiu")
                 self?.shows = shows
                 self?.collectionView.reloadData()
                 
@@ -113,9 +113,16 @@ class ShowsViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue == Segue.mostraSeason{
+        /*if segue == Segue.mostraSeason{
             if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell){
                 let vc = segue.destinationViewController as! EpisodiosTableViewController
+                vc.show = shows?[indexPath.row]
+            }
+        }*/
+        
+        if segue == Segue.mostraDetail{
+            if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell){
+                let vc = segue.destinationViewController as! ShowDetailViewController
                 vc.show = shows?[indexPath.row]
             }
         }

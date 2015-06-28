@@ -14,6 +14,8 @@
 		942AD0010423113A0C461B27 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = D24BA64A01DA57AF2DB3A5E5 /* Main.storyboard */; };
 		B26F5A5C2525661E68EA9946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8723FF3825C1C43D1A7B2BA /* AppDelegate.swift */; };
 		CE0767281B373B9E0077AED4 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0767271B373B9E0077AED4 /* ShowCell.swift */; };
+		CE32DD511B4048BA0030BF7F /* ShowInternalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32DD501B4048BA0030BF7F /* ShowInternalViewController.swift */; };
+		CE32DD531B408E6B0030BF7F /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32DD521B408E6B0030BF7F /* FavoritesManager.swift */; };
 		CE423CE21B2DBDD900D4778B /* EpisodiosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */; };
 		CE423CE41B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */; };
 		CE423CE61B2DD38300D4778B /* ShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE51B2DD38300D4778B /* ShowsViewController.swift */; };
@@ -54,6 +56,8 @@
 		A8723FF3825C1C43D1A7B2BA /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B794FF58401213429CE946BC /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE0767271B373B9E0077AED4 /* ShowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
+		CE32DD501B4048BA0030BF7F /* ShowInternalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInternalViewController.swift; sourceTree = "<group>"; };
+		CE32DD521B408E6B0030BF7F /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodiosTableViewController.swift; sourceTree = "<group>"; };
 		CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellEpisodiosTableViewCell.swift; path = ../ViewControllers/CellEpisodiosTableViewCell.swift; sourceTree = "<group>"; };
 		CE423CE51B2DD38300D4778B /* ShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowsViewController.swift; path = ../ViewControllers/ShowsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		1E91525C4498E46C16B3F4C0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				CE32DD501B4048BA0030BF7F /* ShowInternalViewController.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			children = (
 				CE0767271B373B9E0077AED4 /* ShowCell.swift */,
 				CEAF859F1B3EF3A700AB02C6 /* SeasonCell.swift */,
+				CE32DD521B408E6B0030BF7F /* FavoritesManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 				CEA475461B3F2923004EF724 /* GenresViewController.swift in Sources */,
 				B26F5A5C2525661E68EA9946 /* AppDelegate.swift in Sources */,
 				CE6055581B3EE87500FE6A85 /* ShowDetailViewController.swift in Sources */,
+				CE32DD531B408E6B0030BF7F /* FavoritesManager.swift in Sources */,
 				CEAF859E1B3EF30C00AB02C6 /* SeasonsTableViewController.swift in Sources */,
 				CE423CE61B2DD38300D4778B /* ShowsViewController.swift in Sources */,
 				CEA475481B3F2D28004EF724 /* DetailViewController.swift in Sources */,
@@ -540,6 +547,7 @@
 				CEAF85A01B3EF3A700AB02C6 /* SeasonCell.swift in Sources */,
 				942AD0010423113A0C461B27 /* Main.storyboard in Sources */,
 				CE9718E91B2CAED600063BE7 /* UIColor+MovileNext.swift in Sources */,
+				CE32DD511B4048BA0030BF7F /* ShowInternalViewController.swift in Sources */,
 				CE423CE41B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift in Sources */,
 				DD49F883CAF1AE86F8929441 /* LaunchScreen.xib in Sources */,
 				CEAF859A1B3EEE2300AB02C6 /* OverviewViewController.swift in Sources */,

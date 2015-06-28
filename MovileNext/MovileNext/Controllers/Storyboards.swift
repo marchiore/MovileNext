@@ -231,21 +231,21 @@ extension UIStoryboardSegue {
 extension ShowDetailViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case mostraGenres = "mostraGenres"
-        case mostraDetail = "mostraDetail"
         case mostraOver = "mostraOver"
         case mostraSeason = "mostraSeason"
+        case mostraGenre = "mostraGenre"
+        case mostraDetails = "mostraDetails"
 
         var kind: SegueKind? {
             switch (self) {
-            case mostraGenres:
-                return SegueKind(rawValue: "show")
-            case mostraDetail:
-                return SegueKind(rawValue: "show")
             case mostraOver:
-                return SegueKind(rawValue: "show")
+                return SegueKind(rawValue: "embed")
             case mostraSeason:
-                return SegueKind(rawValue: "show")
+                return SegueKind(rawValue: "embed")
+            case mostraGenre:
+                return SegueKind(rawValue: "embed")
+            case mostraDetails:
+                return SegueKind(rawValue: "embed")
             default:
                 preconditionFailure("Invalid value")
                 break
@@ -254,14 +254,14 @@ extension ShowDetailViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case mostraGenres:
-                return GenresViewController.self
-            case mostraDetail:
-                return DetailViewController.self
             case mostraOver:
                 return OverviewViewController.self
             case mostraSeason:
                 return SeasonsTableViewController.self
+            case mostraGenre:
+                return GenresViewController.self
+            case mostraDetails:
+                return DetailViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil

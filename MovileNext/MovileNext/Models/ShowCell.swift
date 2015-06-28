@@ -19,7 +19,7 @@ class ShowCell: UICollectionViewCell {
     func loadShow(show: Show) {
         let placeholder = UIImage(named: "poster")
         if let url = show.poster?.fullImageURL {
-            image.hnk_setImageFromURL(url, placeholder: placeholder)
+            //image.hnk_setImageFromURL(url, placeholder: placeholder)
         } else {
             image.image = placeholder
         }

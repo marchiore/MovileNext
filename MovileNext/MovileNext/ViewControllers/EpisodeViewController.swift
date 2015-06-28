@@ -36,7 +36,6 @@ class EpisodeViewController: UIViewController {
         }*/
 
         
-        
         imageEpisodio.image = UIImage(named: "bg")
         imageEpisodio.image = imageEpisodio.image?.darkenImage()
         

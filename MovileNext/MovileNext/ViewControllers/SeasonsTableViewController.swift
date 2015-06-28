@@ -9,29 +9,39 @@
 import UIKit
 import TraktModels
 
-class SeasonsTableViewController: UITableViewController {
-    
+
+protocol SeasonsTableViewControllerDelegate: class{
+    func seasonsController(vc: SeasonsTableViewController, didSelectSeason season: Season)
+}
+
+class SeasonsTableViewController: UITableViewController, ShowInternalViewController {
+
+    weak var delegate : SeasonsTableViewControllerDelegate?
+
     var show: Show!
     private var seasons: [Season]?
     private let httpClient = TraktHTTPClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSeason()
+        loadSeason(show)
         self.title = show.title
     }
     
-    func loadSeason(){
-        println("SLUG -" + show.identifiers.slug!)
-        httpClient.getSeasons(show.identifiers.slug!) {[weak self] result in
-            if let se = result.value {
-                println("Conseguiu Season")
-                self?.seasons = se
-                self!.tableView.reloadData()
-            }else{
-                println(result.error)
+    func loadSeason(sw: Show){
+        if isViewLoaded(){
+            //println("SLUG -" + sw.identifiers.slug!)
+            httpClient.getSeasons(sw.identifiers.slug!) {[weak self] result in
+                if let se = result.value {
+                    //println("Conseguiu Season")
+                    self?.seasons = se
+                    self!.tableView.reloadData()
+                }else{
+                    println(result.error)
+                }
             }
         }
+        self.show = sw
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -74,4 +84,16 @@ class SeasonsTableViewController: UITableViewController {
 
     }
     
+    func intrinsicContentSize() -> CGSize {
+        return tableView.contentSize
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let season = seasons?[indexPath.row]{
+            delegate?.seasonsController(self, didSelectSeason: season)
+        }
+    }
+    
+
+
 }

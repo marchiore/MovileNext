@@ -21,25 +21,32 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         self.title = show.title
-        if let country = show.country{
-            labelCountry.text = country.uppercaseString
+        loadDetails(show)
+    }
+    
+    func loadDetails(sw: Show){
+        if isViewLoaded(){
+            if let country = show.country{
+                labelCountry.text = country.uppercaseString
+            }
+            
+            if let started = show?.year{
+                labelStartedIn.text = "\(started)"
+            }
+            
+            if let aired = show?.airedEpisodes{
+                labelAired.text = "\(aired)"
+            }
+            
+            if let status = show.status?.rawValue{
+                labelStatus.text = "\(status)"
+            }
+            
+            if let network = show.network{
+                labelNetwork.text = network
+            }
         }
-        
-        if let started = show?.year{
-            labelStartedIn.text = "\(started)"
-        }
-        
-        if let aired = show?.airedEpisodes{
-            labelAired.text = "\(aired)"
-        }
-        
-        if let status = show.status?.rawValue{
-            labelStatus.text = "\(status)"
-        }
-        
-        if let network = show.network{
-            labelNetwork.text = network
-        }
+        self.show = sw
     }
     
 }

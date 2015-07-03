@@ -29,7 +29,8 @@ class SeasonCell: UITableViewCell {
     func loadSeason(season: Season) {
         let placeholder = UIImage(named: "poster")
         if let url = season.poster?.thumbImageURL {
-            imageSeason.hnk_setImageFromURL(url, placeholder: placeholder)
+            //imageSeason.hnk_setImageFromURL(url, placeholder: placeholder)
+            imageSeason.kf_setImageWithURL(url, placeholderImage: placeholder)
         } else {
             imageSeason.image = placeholder
         }

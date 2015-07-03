@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Haneke
+//import Haneke
+import Kingfisher
 import TraktModels
 
 class ShowCell: UICollectionViewCell {
@@ -20,6 +21,7 @@ class ShowCell: UICollectionViewCell {
         let placeholder = UIImage(named: "poster")
         if let url = show.poster?.fullImageURL {
             //image.hnk_setImageFromURL(url, placeholder: placeholder)
+            image.kf_setImageWithURL(url, placeholderImage: placeholder)
         } else {
             image.image = placeholder
         }
@@ -28,8 +30,9 @@ class ShowCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        image.hnk_cancelSetImage()
+        let placeholder = UIImage(named: "poster")
+        image.image = placeholder
+        //image.hnk_cancelSetImage()
         image.image = nil
     }
 

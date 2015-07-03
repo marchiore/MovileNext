@@ -8,6 +8,7 @@ PODS:
   - FloatRatingView (0.1.0)
   - HanekeSwift (0.9.1)
   - ISO8601DateFormatter (0.7)
+  - Kingfisher (1.4.1)
   - Nimble (0.4.2)
   - OHHTTPStubs (4.0.2)
   - OverlayView (0.1.0)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - BorderedView
   - FloatRatingView (from `https://github.com/strekfus/FloatRatingView.git`)
   - HanekeSwift
+  - Kingfisher (~> 1.4)
   - Nimble
   - OHHTTPStubs
   - OverlayView (from `https://github.com/marcelofabri/OverlayView.git`)
@@ -60,6 +62,7 @@ SPEC CHECKSUMS:
   FloatRatingView: 4159f5ac29ba5bbc6f8cf62737e64329efac72f2
   HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
+  Kingfisher: 962a21cdc2a7b0fa63be3b2c45ea6f180feda535
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   OHHTTPStubs: dbd1957d414659783e07b49c961940b7564c23d9
   OverlayView: cdfcc457c101fa1c95a8eb58adb69d534617db09
@@ -68,4 +71,4 @@ SPEC CHECKSUMS:
   TagListView: 86fcd7616973096aeaaf71bf774eecacf483c1fb
   TraktModels: 7303801cdcaf89358f4bd71fd68fa59aba1468d9
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2

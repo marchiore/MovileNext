@@ -16,7 +16,8 @@ target 'MovileNext', :exclusive => true do
   pod 'FloatRatingView', :git => 'https://github.com/strekfus/FloatRatingView.git'
   pod 'BorderedView'
   pod 'OverlayView', :git => 'https://github.com/marcelofabri/OverlayView.git'
-    
+  pod 'Kingfisher', '~> 1.4'
+  
 end
 
 target :unit_tests, :exclusive => true do

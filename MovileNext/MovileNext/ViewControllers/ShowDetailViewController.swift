@@ -12,7 +12,8 @@ import FloatRatingView
 
 class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDelegate{
     var show: Show!
-    
+    var season: Season!
+    let fav = FavoritesManager()
     //Constraints
     @IBOutlet var detailConst: NSLayoutConstraint!
     @IBOutlet var genresConst: NSLayoutConstraint!
@@ -22,11 +23,37 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
     @IBOutlet var stars: FloatRatingView!
     @IBOutlet var rate: UILabel!
     @IBOutlet var imageShow: UIImageView!
+    @IBOutlet var likeButton: UIButton!
     
     private weak var overviewViewController: OverviewViewController!
     private weak var seasonsTableViewController: SeasonsTableViewController!
     private weak var genresViewController: GenresViewController!
     private weak var detailViewController: DetailViewController!
+    private weak var episodiosViewController: EpisodiosTableViewController!
+    
+    let name = FavoritesManager.favoriteNotificationName
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    
+    @IBAction func like(sender: UIButton) {
+        let showId = show.identifiers.trakt
+        if fav.favoritesIdentifiers.contains(showId){
+            fav.removeIdentifier(showId)
+        }else{
+            fav.addIdentifier(showId)
+        }
+        controlaBtLike()
+        
+        notificationCenter.postNotificationName(name, object: self)
+    }
+    
+    func controlaBtLike(){
+        let showId = show.identifiers.trakt
+        if fav.favoritesIdentifiers.contains(showId){
+            likeButton.selected = true
+        }else{
+            likeButton.selected = false
+        }
+    }
 
     
     override func viewDidLoad() {
@@ -44,7 +71,8 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
             
             rate.text = NSString(format: "%.2f", rating) as String
         }
-
+        
+        controlaBtLike()
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -53,6 +81,7 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
             self.overviewViewController.loadShows(show)
         }else if segue == Segue.mostraSeason{
             seasonsTableViewController = segue.destinationViewController as! SeasonsTableViewController
+            seasonsTableViewController.delegate = self
             self.seasonsTableViewController.loadSeason(show)
             
             //vc.show = show
@@ -63,17 +92,13 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
         }else if segue == Segue.mostraDetails{
             self.detailViewController = segue.destinationViewController as! DetailViewController
             self.detailViewController.loadDetails(show)
+            
+        }else if segue == Segue.segueEpi{
+            self.episodiosViewController = segue.destinationViewController as! EpisodiosTableViewController
+            self.episodiosViewController.loadEpisodes(show, season:season)
         }
     }
     
-    @IBAction func favorite(sender: AnyObject) {
-        var favorite: FavoritesManager!
-        
-        favorite.addIdentifier(self.show.identifiers.trakt)
-        
-        favorite.removeIdentifier(self.show.identifiers.trakt)
-        
-    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -83,15 +108,13 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
         overviewConst.constant = overviewViewController.intrinsicContentSize().height
         
         genresConst.constant = genresViewController.intrinsicContentSize().height
-        
-        
     }
-    
-
     
     func seasonsController(vc: SeasonsTableViewController, didSelectSeason season: Season){
+        //println("Teste")
         println(season)
-        
+        self.season = season
+        self.performSegue(Segue.segueEpi, sender: self)
     }
-    
+
 }

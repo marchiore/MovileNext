@@ -89,6 +89,8 @@ class SeasonsTableViewController: UITableViewController, ShowInternalViewControl
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("indexPath.row -> \(indexPath.row)")
+        println("aired  -> \(seasons?[indexPath.row].airedEpisodes)")
         if let season = seasons?[indexPath.row]{
             delegate?.seasonsController(self, didSelectSeason: season)
         }

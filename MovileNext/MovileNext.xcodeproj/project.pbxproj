@@ -26,6 +26,7 @@
 		CE9718E91B2CAED600063BE7 /* UIColor+MovileNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9718E81B2CAED600063BE7 /* UIColor+MovileNext.swift */; };
 		CE9718EB1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9718EA1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift */; };
 		CE9718ED1B2CB12000063BE7 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9718EC1B2CB12000063BE7 /* EpisodeViewController.swift */; };
+		CEA4603C1B48667B0003B1F4 /* UINavigationBar+BottomHairline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4603B1B48667B0003B1F4 /* UINavigationBar+BottomHairline.swift */; };
 		CEA475461B3F2923004EF724 /* GenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA475451B3F2923004EF724 /* GenresViewController.swift */; };
 		CEA475481B3F2D28004EF724 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA475471B3F2D28004EF724 /* DetailViewController.swift */; };
 		CEAF859A1B3EEE2300AB02C6 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF85991B3EEE2300AB02C6 /* OverviewViewController.swift */; };
@@ -68,6 +69,7 @@
 		CE9718E81B2CAED600063BE7 /* UIColor+MovileNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MovileNext.swift"; sourceTree = "<group>"; };
 		CE9718EA1B2CAFD700063BE7 /* CustomNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		CE9718EC1B2CB12000063BE7 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		CEA4603B1B48667B0003B1F4 /* UINavigationBar+BottomHairline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+BottomHairline.swift"; sourceTree = "<group>"; };
 		CEA475451B3F2923004EF724 /* GenresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresViewController.swift; sourceTree = "<group>"; };
 		CEA475471B3F2D28004EF724 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CEAF85991B3EEE2300AB02C6 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6055531B3ED9E700FE6A85 /* UIImage+DarkenImage.swift */,
+				CEA4603B1B48667B0003B1F4 /* UINavigationBar+BottomHairline.swift */,
 				CE9718E81B2CAED600063BE7 /* UIColor+MovileNext.swift */,
 			);
 			path = Extensions;
@@ -549,6 +552,7 @@
 				942AD0010423113A0C461B27 /* Main.storyboard in Sources */,
 				CE9718E91B2CAED600063BE7 /* UIColor+MovileNext.swift in Sources */,
 				CE32DD511B4048BA0030BF7F /* ShowInternalViewController.swift in Sources */,
+				CEA4603C1B48667B0003B1F4 /* UINavigationBar+BottomHairline.swift in Sources */,
 				CE423CE41B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift in Sources */,
 				DD49F883CAF1AE86F8929441 /* LaunchScreen.xib in Sources */,
 				CEAF859A1B3EEE2300AB02C6 /* OverviewViewController.swift in Sources */,

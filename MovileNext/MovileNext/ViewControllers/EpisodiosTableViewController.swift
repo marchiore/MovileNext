@@ -15,11 +15,14 @@ class EpisodiosTableViewController: UIViewController {
     private let httpClient = TraktHTTPClient()
     
     var show: Show!
+    var season: Season!
     private var episodes: [Episode]?
+    private weak var episodeViewController: EpisodeViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadEpisodes()
+        loadEpisodes(show, season: season)
+        self.title = show.title
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,16 +30,21 @@ class EpisodiosTableViewController: UIViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func loadEpisodes(){
-        httpClient.getEpisodes(show.identifiers.slug!, season: 1){[weak self] result in
-            if let episodes = result.value {
-                println("Conseguiu")
-                self?.episodes = episodes
-                self?.episodiosTableView.reloadData()
-            }else{
-                println(result.error)
+    func loadEpisodes(sw: Show, season: Season){
+        if isViewLoaded(){
+            self.title = "Season \(self.season.number)"
+            httpClient.getEpisodes(sw.identifiers.slug!, season: season.number){[weak self] result in
+                if let episodes = result.value {
+                    println("Conseguiu")
+                    self?.episodes = episodes
+                    self?.episodiosTableView.reloadData()
+                }else{
+                    println(result.error)
+                }
             }
         }
+        self.show = sw
+        self.season = season
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,17 +72,23 @@ class EpisodiosTableViewController: UIViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier,   forIndexPath: indexPath) as! UITableViewCell
         
         var episode = episodes?[indexPath.row]
-        cell.textLabel?.text = episode?.number.description
+        
+        var seasonString = String(format: "%02d", season.number)
+        var numberString = String(format: "%02d", episode!.number)
+        
+        cell.textLabel?.text = "S\(seasonString)E\(numberString)"
         cell.detailTextLabel?.text = episode?.title
         
         return cell
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue == Segue.EpisodeSegue{
-            if let cell = sender as? UICollectionViewCell, indexPath = episodiosTableView.indexPathForSelectedRow(){
-                let vc = segue.destinationViewController as! EpisodeViewController
-                vc.episode = episodes?[indexPath.row]
+            if let cell = sender as? UITableViewCell, indexPath = episodiosTableView.indexPathForSelectedRow(){
+                let ep = episodes?[indexPath.row]
+                self.episodeViewController = segue.destinationViewController as! EpisodeViewController
+                self.episodeViewController.loadEpisode(ep!, season: season)
             }
         }
     }

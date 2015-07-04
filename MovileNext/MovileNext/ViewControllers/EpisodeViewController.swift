@@ -16,6 +16,7 @@ class EpisodeViewController: UIViewController {
     @IBOutlet weak var imageEpisodio: UIImageView!
 
     var episode: Episode!
+    var season: Season!
     
     @IBAction func sharePressed(sender: UIBarButtonItem) {
 
@@ -25,24 +26,36 @@ class EpisodeViewController: UIViewController {
         presentViewController(vc, animated: true, completion: nil)
     }
     
+    func loadEpisode(ep: Episode, season: Season){
+        if isViewLoaded(){
+            self.episode? = ep
+            self.season? = season
+            let placeholder = UIImage(named: "bg")
+            if let url = episode.screenshot?.thumbImageURL {
+                imageEpisodio.kf_setImageWithURL(url, placeholderImage: placeholder)
+            } else {
+                imageEpisodio.image = placeholder
+            }
+            
+            imageEpisodio.image = imageEpisodio.image?.darkenImage()
+            textEpisodio.text = episode.overview
+            
+            textEpisodio.textContainer.lineFragmentPadding = 0
+            textEpisodio.textContainerInset = UIEdgeInsetsZero
+            var seasonString = String(format: "%02d", season.number)
+            var numberString = String(format: "%02d", episode.number)
+            self.title = "S\(seasonString)E\(numberString)"
+            
+            labelEpisodio.text = episode.title
+        }
+        self.season = season
+        self.episode = ep
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        let placeholder = UIImage(named: "bg")
-        if let url = episode.screenshot?.fullImageURL {
-            imageEpisodio.hnk_setImageFromURL(url, placeholder: placeholder)
-        } else {
-            imageEpisodio.image = placeholder
-        }*/
-
-        
-        imageEpisodio.image = UIImage(named: "bg")
-        imageEpisodio.image = imageEpisodio.image?.darkenImage()
-        
-        textEpisodio.textContainer.lineFragmentPadding = 0
-        textEpisodio.textContainerInset = UIEdgeInsetsZero
-        
-        
+        loadEpisode(episode, season: season)
         // Do any additional setup after loading the view.
     }
 

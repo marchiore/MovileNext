@@ -14,13 +14,30 @@ import Haneke
 
 class ShowsViewController: UIViewController {
 
+    deinit {
+        let name = FavoritesManager.favoriteNotificationName
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self, name: name, object: nil)
+    }
+    
     private let teste = TraktHTTPClient()
     private let httpClient = TraktHTTPClient()
     
     private var shows: [Show]?
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    let name = FavoritesManager.favoriteNotificationName
+    let notificationCenter = NSNotificationCenter.defaultCenter()
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBAction func changeSegmented(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0{
+            loadShows()
+        }else if sender.selectedSegmentIndex == 1{
+            loadFavoriteShows()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -47,9 +64,21 @@ class ShowsViewController: UIViewController {
 //        teste.getSeasons("game-of-thrones") { result in
 //            println("Seasons -> \(result.value?.count)")
 //        }
-        
+        notificationCenter.addObserver(self, selector: "favoriteChanged", name: name, object: nil)
         loadShows()
-
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        collectionView.addSubview(refreshControl)
+    }
+    
+    func refresh(refreshControl: UIRefreshControl) {
+        loadShows()
+        refreshControl.endRefreshing()
+    }
+    
+    func favoriteChanged(){
+        self.changeSegmented(segmentedControl)
     }
     
     func loadShows(){
@@ -64,6 +93,26 @@ class ShowsViewController: UIViewController {
             }
             
         })
+    }
+    
+    func loadFavoriteShows(){
+        let fav = FavoritesManager()
+        
+        httpClient.getPopularShows({[weak self] result in
+            if let shows = result.value {
+                var showsFavorites: [Show]?
+                showsFavorites = self?.shows?.filter({
+                    fav.favoritesIdentifiers.contains($0.identifiers.trakt)
+                })
+                
+                self?.shows = showsFavorites
+                self?.collectionView.reloadData()
+                
+            }else{
+                println(result.error)
+            }
+            
+            })
     }
     
     
@@ -137,5 +186,15 @@ class ShowsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.hideBottomHairline()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.showBottomHairline()
+    }
 
 }

@@ -10,21 +10,39 @@ import Foundation
 
 class FavoritesManager {
 
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    
     var def = NSUserDefaults.standardUserDefaults()
     
-    var favoritesIdentifiers: Set<Int>{
-        return def.objectForKey("favorites") as! Set<Int>
+    static let favoriteNotificationName = "favoriteChanged"
+
+    var favoritesIdentifiers: Set<Int> {
+        if let array = def.objectForKey("favorites") as? [Int]{
+            return Set(array)
+        }
+        
+        return Set<Int>()
     }
 
     func addIdentifier(identifier: Int){
+        var identifiers = favoritesIdentifiers
         
-        //favoritesIdentifiers.insert(identifier)
+        identifiers.insert(identifier)
         
-        def.setObject(favoritesIdentifiers, forKey: "favorites")
+        def.setObject([Int](identifiers), forKey: "favorites")
+        def.synchronize()
     }
-    
+
     func removeIdentifier(identifier: Int){
-    
+        var identifiers = favoritesIdentifiers
+        
+        identifiers.remove(identifier)
+        
+        def.setObject([Int](identifiers), forKey: "favorites")
+        def.synchronize()
+
+        
     }
+
     
 }

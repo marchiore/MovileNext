@@ -235,6 +235,7 @@ extension ShowDetailViewController {
         case mostraSeason = "mostraSeason"
         case mostraGenre = "mostraGenre"
         case mostraDetails = "mostraDetails"
+        case segueEpi = "segueEpi"
 
         var kind: SegueKind? {
             switch (self) {
@@ -246,6 +247,8 @@ extension ShowDetailViewController {
                 return SegueKind(rawValue: "embed")
             case mostraDetails:
                 return SegueKind(rawValue: "embed")
+            case segueEpi:
+                return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
                 break
@@ -262,6 +265,8 @@ extension ShowDetailViewController {
                 return GenresViewController.self
             case mostraDetails:
                 return DetailViewController.self
+            case segueEpi:
+                return EpisodiosTableViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil

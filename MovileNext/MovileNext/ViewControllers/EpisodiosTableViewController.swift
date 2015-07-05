@@ -19,6 +19,10 @@ class EpisodiosTableViewController: UIViewController {
     private var episodes: [Episode]?
     private weak var episodeViewController: EpisodeViewController!
     
+    deinit{
+        println("\(self.dynamicType) deinit")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadEpisodes(show, season: season)

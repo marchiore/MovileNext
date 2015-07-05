@@ -18,6 +18,10 @@ class EpisodeViewController: UIViewController {
     var episode: Episode!
     var season: Season!
     
+    deinit{
+        println("\(self.dynamicType) deinit")
+    }
+    
     @IBAction func sharePressed(sender: UIBarButtonItem) {
 
         let url = NSURL(string: "http://www.apple.com")!

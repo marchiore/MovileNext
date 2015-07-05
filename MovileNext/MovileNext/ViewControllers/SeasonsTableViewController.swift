@@ -69,7 +69,12 @@ class SeasonsTableViewController: UITableViewController, ShowInternalViewControl
         }
         
         if let seasonNumber = season?.number.description{
-            cell.labelSeason.text = "Season \(seasonNumber)"
+            
+            if seasonNumber == "0"{
+                cell.labelSeason.text = "Extras"
+            }else{
+                cell.labelSeason.text = "Season \(seasonNumber)"
+            }
         }
         if let rating = season?.rating{
             cell.setRateStars(rating)

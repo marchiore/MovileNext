@@ -24,6 +24,7 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
     @IBOutlet var rate: UILabel!
     @IBOutlet var imageShow: UIImageView!
     @IBOutlet var likeButton: UIButton!
+    @IBOutlet weak var labelYear: UILabel!
     
     private weak var overviewViewController: OverviewViewController!
     private weak var seasonsTableViewController: SeasonsTableViewController!
@@ -34,7 +35,32 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
     let name = FavoritesManager.favoriteNotificationName
     let notificationCenter = NSNotificationCenter.defaultCenter()
     
+    deinit{
+        println("\(self.dynamicType) deinit")
+    }
+    
     @IBAction func like(sender: UIButton) {
+        
+        let favorited = !sender.selected
+        
+        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
+        
+        pulseAnimation.duration = 0.3
+        pulseAnimation.fromValue = 1
+        pulseAnimation.toValue = favorited ? 1.2 : 0.8
+        
+        pulseAnimation.autoreverses = true
+        pulseAnimation.repeatCount = 1
+        
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        
+        sender.layer.addAnimation(pulseAnimation, forKey: nil)
+        
+
+        UIView.transitionWithView(sender, duration: 0.3, options: .TransitionCrossDissolve, animations:{
+            sender.selected = favorited
+        }, completion: nil)
+        
         let showId = show.identifiers.trakt
         if fav.favoritesIdentifiers.contains(showId){
             fav.removeIdentifier(showId)
@@ -71,6 +97,7 @@ class ShowDetailViewController: UIViewController, SeasonsTableViewControllerDele
             
             rate.text = NSString(format: "%.2f", rating) as String
         }
+        labelYear.text = String(show.year)
         
         controlaBtLike()
     }

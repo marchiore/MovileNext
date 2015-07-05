@@ -12,7 +12,7 @@ import Result
 import TraktModels
 import Haneke
 
-class ShowsViewController: UIViewController {
+class ShowsViewController: UIViewController, UISearchBarDelegate {
 
     deinit {
         let name = FavoritesManager.favoriteNotificationName
@@ -20,10 +20,13 @@ class ShowsViewController: UIViewController {
         notificationCenter.removeObserver(self, name: name, object: nil)
     }
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     private let teste = TraktHTTPClient()
     private let httpClient = TraktHTTPClient()
     
     private var shows: [Show]?
+    private var allShows: [Show]?
     
     let name = FavoritesManager.favoriteNotificationName
     let notificationCenter = NSNotificationCenter.defaultCenter()
@@ -43,6 +46,12 @@ class ShowsViewController: UIViewController {
         // Do any additional setup after loading the view.
         let show: Show
         let episode: Episode
+
+        searchBar.delegate = self
+        searchBar.barTintColor = UIColor.mup_orangeColor()
+        searchBar.layer.borderWidth = 1;
+        searchBar.layer.borderColor = UIColor.mup_orangeColor().CGColor
+        
 //        
 //        teste.getShow("game-of-thrones") { result in
 //            println("Show -> \(result.value?.title)")
@@ -69,7 +78,9 @@ class ShowsViewController: UIViewController {
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        collectionView.addSubview(refreshControl)
+        
+        let searchControl = UISearchController()
+        
     }
     
     func refresh(refreshControl: UIRefreshControl) {
@@ -86,6 +97,7 @@ class ShowsViewController: UIViewController {
             if let shows = result.value {
                 //println("Conseguiu")
                 self?.shows = shows
+                self?.allShows = shows
                 self?.collectionView.reloadData()
                 
             }else{
@@ -106,6 +118,7 @@ class ShowsViewController: UIViewController {
                 })
                 
                 self?.shows = showsFavorites
+                self?.allShows = showsFavorites
                 self?.collectionView.reloadData()
                 
             }else{
@@ -195,6 +208,21 @@ class ShowsViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.showBottomHairline()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        println(searchText)
+        self.shows = self.allShows?.filter({
+            let search = $0.title.rangeOfString(searchText)
+            return search != nil
+        })
+        
+        if self.shows?.count == 0{
+            self.shows = self.allShows
+        }
+        
+        collectionView.reloadData()
+        
     }
 
 }

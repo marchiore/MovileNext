@@ -16,6 +16,7 @@
 		CE0767281B373B9E0077AED4 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0767271B373B9E0077AED4 /* ShowCell.swift */; };
 		CE32DD511B4048BA0030BF7F /* ShowInternalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32DD501B4048BA0030BF7F /* ShowInternalViewController.swift */; };
 		CE32DD531B408E6B0030BF7F /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32DD521B408E6B0030BF7F /* FavoritesManager.swift */; };
+		CE3656B41B49B2BD00E30174 /* UISearchBarBottomHairline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3656B31B49B2BD00E30174 /* UISearchBarBottomHairline.swift */; };
 		CE423CE21B2DBDD900D4778B /* EpisodiosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */; };
 		CE423CE41B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */; };
 		CE423CE61B2DD38300D4778B /* ShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE423CE51B2DD38300D4778B /* ShowsViewController.swift */; };
@@ -59,6 +60,7 @@
 		CE0767271B373B9E0077AED4 /* ShowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
 		CE32DD501B4048BA0030BF7F /* ShowInternalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInternalViewController.swift; sourceTree = "<group>"; };
 		CE32DD521B408E6B0030BF7F /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		CE3656B31B49B2BD00E30174 /* UISearchBarBottomHairline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarBottomHairline.swift; sourceTree = "<group>"; };
 		CE423CE11B2DBDD900D4778B /* EpisodiosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodiosTableViewController.swift; sourceTree = "<group>"; };
 		CE423CE31B2DC1C800D4778B /* CellEpisodiosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellEpisodiosTableViewCell.swift; path = ../ViewControllers/CellEpisodiosTableViewCell.swift; sourceTree = "<group>"; };
 		CE423CE51B2DD38300D4778B /* ShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowsViewController.swift; path = ../ViewControllers/ShowsViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				CE6055531B3ED9E700FE6A85 /* UIImage+DarkenImage.swift */,
 				CEA4603B1B48667B0003B1F4 /* UINavigationBar+BottomHairline.swift */,
 				CE9718E81B2CAED600063BE7 /* UIColor+MovileNext.swift */,
+				CE3656B31B49B2BD00E30174 /* UISearchBarBottomHairline.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				CE423CEA1B2E1AB200D4778B /* TraktHTTPClient.swift in Sources */,
 				CEA475461B3F2923004EF724 /* GenresViewController.swift in Sources */,
 				B26F5A5C2525661E68EA9946 /* AppDelegate.swift in Sources */,
+				CE3656B41B49B2BD00E30174 /* UISearchBarBottomHairline.swift in Sources */,
 				CE6055581B3EE87500FE6A85 /* ShowDetailViewController.swift in Sources */,
 				CE32DD531B408E6B0030BF7F /* FavoritesManager.swift in Sources */,
 				CEAF859E1B3EF30C00AB02C6 /* SeasonsTableViewController.swift in Sources */,
